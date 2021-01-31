@@ -8,7 +8,7 @@
 
 I was given the assignment through Triliogy/WASHU Coding Bootcamp to "create an application that can be used to write, save, and delete notes. This application will use an express backend and save and retrieve note data from a JSON file". The user story was that, "AS A user, I want to be able to write and save notes I WANT to be able to delete notes I've written before SO THAT I can organize my thoughts and keep track of tasks I need to complete".
 
-The frontend was provided by Triliogy/WASHU Coding Bootcamp
+The frontend was provided by Triliogy/WASHU Coding Bootcamp. The build of the backen and the connection between the two was created by me.
 
 ## Table of Contents
 
