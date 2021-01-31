@@ -24,5 +24,12 @@ app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'index.html')));
 // Basic route that sends the user first to the notes page
 app.get('/notes', (req, res) => res.sendFile(path.join(__dirname, 'notes.html')));
 
+// TEST OBJECTS for loading purposes
+
+const characters = [{ "title": "Test Title", "text": "Test text" }];
+
+// Displays all notes
+app.get('/api/notes', (req, res) => res.json(characters));
+
 // Starts the server to begin listening
 app.listen(PORT, () => console.log(`App listening on PORT ${PORT}`));
