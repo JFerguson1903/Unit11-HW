@@ -12,6 +12,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Routes
+//  Route to local assets folder
+app.use('/assets', express.static(__dirname + '/assets'))
+
+// 204 content code for Favicon as to not cause a 404 error in cosole log
+app.get('/favicon.ico', (req, res) => res.status(204));
+
 // Basic route that sends the user to the landing page
 app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'index.html')));
 
