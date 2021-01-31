@@ -1,5 +1,4 @@
 // Dependencies
-
 const express = require('express');
 const path = require('path');
 
@@ -14,7 +13,7 @@ app.use(express.json());
 
 // Routes
 // Basic route that sends the user to the landing page
-app.get('*', (req, res) => res.sendFile(path.join(__dirname, 'view.html')));
+app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'index.html')));
 
 // Basic route that sends the user first to the notes page
 app.get('/notes', (req, res) => res.sendFile(path.join(__dirname, 'notes.html')));
