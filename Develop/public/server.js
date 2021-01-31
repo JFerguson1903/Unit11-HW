@@ -5,7 +5,7 @@ const path = require('path');
 // Sets up the Express App
 
 const app = express();
-const PORT = 3000;
+const PORT = 3001;
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
@@ -23,6 +23,9 @@ app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'index.html')));
 
 // Basic route that sends the user first to the notes page
 app.get('/notes', (req, res) => res.sendFile(path.join(__dirname, 'notes.html')));
+
+// Sets default route to be landing page
+app.get('*', (req, res) => res.sendFile(path.join(__dirname, 'index.html')));
 
 // TEST OBJECTS for loading purposes
 
