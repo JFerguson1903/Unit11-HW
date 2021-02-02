@@ -5,7 +5,7 @@ const path = require('path');
 // Sets up the Express App
 
 const app = express();
-const PORT = 3003;
+const PORT = 3005;
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
@@ -29,6 +29,11 @@ const characters = [{ "id": 1, "title": "Test Title", "text": "Test text" }];
 
 // Displays all notes
 app.get('/api/notes', (req, res) => res.json(characters));
+
+// Saving Newly Written Note
+app.post('/api/notes', (req, res) => {
+    console.log(req.body);
+});
 
 // Sets default route to be landing page
 app.get('*', (req, res) => res.sendFile(path.join(__dirname, 'public', 'index.html')));
