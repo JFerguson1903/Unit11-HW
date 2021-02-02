@@ -12,7 +12,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Routes
-//  Route to local assets folder
+// Route to local assets folder
 app.use('/assets', express.static(__dirname + '/public/assets'))
 
 // 204 content code for Favicon as to not cause a 404 error in cosole log
