@@ -1,11 +1,12 @@
 // Dependencies
 const express = require('express');
 const path = require('path');
+const fs = require('fs');
 
 // Sets up the Express App
 
 const app = express();
-const PORT = 3005;
+const PORT = 3011;
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
@@ -24,15 +25,25 @@ app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'public', 'index.ht
 // Basic route that sends the user first to the notes page
 app.get('/notes', (req, res) => res.sendFile(path.join(__dirname, 'public', 'notes.html')));
 
-// TEST OBJECTS for loading purposes
-const characters = [{ "id": 1, "title": "Test Title", "text": "Test text" }];
-
 // Displays all notes
-app.get('/api/notes', (req, res) => res.json(characters));
+app.get('/api/notes', (req, res) => {
+
+    let data = '';
+    let finalData = '';
+    let readStream = fs.createReadStream(__dirname + '/db/db.json', 'utf8');
+    readStream.on('data', function(chunk) {
+        data += chunk;
+    }).on('end', function() {
+        //console.log(data);
+        finalData = JSON.parse(data);
+        console.log(finalData);
+        res.json(finalData);
+    });
+});
 
 // Saving Newly Written Note
 app.post('/api/notes', (req, res) => {
-    console.log(req.body);
+    //console.log(req.body);
 });
 
 // Sets default route to be landing page
