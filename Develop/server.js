@@ -26,24 +26,12 @@ app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'public', 'index.ht
 app.get('/notes', (req, res) => res.sendFile(path.join(__dirname, 'public', 'notes.html')));
 
 // Displays all notes
-app.get('/api/notes', (req, res) => {
-
-    let data = '';
-    let finalData = '';
-    let readStream = fs.createReadStream(__dirname + '/db/db.json', 'utf8');
-    readStream.on('data', function(chunk) {
-        data += chunk;
-    }).on('end', function() {
-        //console.log(data);
-        finalData = JSON.parse(data);
-        console.log(finalData);
-        res.json(finalData);
-    });
-});
+app.get('/api/notes', (req, res) => res.sendFile(path.join(__dirname, 'db', 'db.json')));
 
 // Saving Newly Written Note
 app.post('/api/notes', (req, res) => {
-    //console.log(req.body);
+    console.log(req.body);
+    let newNote = req.body;
 });
 
 // Sets default route to be landing page
