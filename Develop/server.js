@@ -5,7 +5,7 @@ const path = require('path');
 // Sets up the Express App
 
 const app = express();
-const PORT = 3001;
+const PORT = 3003;
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
@@ -24,15 +24,14 @@ app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'public', 'index.ht
 // Basic route that sends the user first to the notes page
 app.get('/notes', (req, res) => res.sendFile(path.join(__dirname, 'public', 'notes.html')));
 
-// Sets default route to be landing page
-app.get('*', (req, res) => res.sendFile(path.join(__dirname, 'public', 'index.html')));
-
 // TEST OBJECTS for loading purposes
-
-const characters = [{ "title": "Test Title", "text": "Test text" }];
+const characters = [{ "id": 1, "title": "Test Title", "text": "Test text" }];
 
 // Displays all notes
 app.get('/api/notes', (req, res) => res.json(characters));
+
+// Sets default route to be landing page
+app.get('*', (req, res) => res.sendFile(path.join(__dirname, 'public', 'index.html')));
 
 // Starts the server to begin listening
 app.listen(PORT, () => console.log(`App listening on PORT ${PORT}`));
