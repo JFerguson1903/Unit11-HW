@@ -4,7 +4,6 @@ const path = require('path');
 const fs = require('fs');
 
 // Sets up the Express App
-
 const app = express();
 const PORT = 3011;
 
@@ -12,10 +11,15 @@ const PORT = 3011;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Retrieves information from the db,json
+// Retrieves information from the db.json
 let getStoredNotes = () => {
     let databaseInfo = JSON.parse(fs.readFileSync("./db/db.json", "utf8"))
     return databaseInfo;
+}
+
+// Update db.json
+let updateDb = (updatedNote) => {
+    fs.writeFileSync("./db/db.json", JSON.stringify(updatedNote));
 }
 
 // Routes
@@ -43,11 +47,12 @@ app.post('/api/notes', (req, res) => {
     newNote = Object.assign({ id: newNoteID }, newNote);
     currentStoredNotes.push(newNote);
 
-    // Updating db.json with the new note
-    fs.writeFileSync("./db/db.json", JSON.stringify(currentStoredNotes));
+    // Calling UpdateDb function
+    updateDb(currentStoredNotes);
     res.json(currentStoredNotes);
 });
 
+// Delete Trashed Note
 app.delete('/api/notes/:id', (req, res) => {
     let currentStoredNotes = getStoredNotes();
     let noteID = req.params.id;
@@ -62,8 +67,8 @@ app.delete('/api/notes/:id', (req, res) => {
         return accumulator
     }, [])
 
-    // Updating db.json with the updated note
-    fs.writeFileSync("./db/db.json", JSON.stringify(modifiedStoredNotes));
+    // Calling UpdateDb function
+    updateDb(modifiedStoredNotes);
     res.json(modifiedStoredNotes);
 });
 
