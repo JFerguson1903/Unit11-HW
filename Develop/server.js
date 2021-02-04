@@ -38,7 +38,9 @@ app.get('/api/notes', (req, res) => res.sendFile(path.join(__dirname, 'db', 'db.
 app.post('/api/notes', (req, res) => {
     console.log(req.body);
     let newNote = req.body;
-    getStoredNotes();
+    let currentStoredNotes = getStoredNotes();
+    currentStoredNotes.push(newNote);
+    console.log(currentStoredNotes);
 });
 
 // Sets default route to be landing page
