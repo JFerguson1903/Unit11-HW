@@ -51,8 +51,9 @@ app.post('/api/notes', (req, res) => {
 app.delete('/api/notes/:id', (req, res) => {
     let currentStoredNotes = getStoredNotes();
     let noteID = req.params.id;
-    let i = 1;
 
+    // Removes trashed note
+    let i = 1;
     let modifiedStoredNotes = currentStoredNotes.reduce(function(accumulator, currentValue) {
         if (currentValue.id !== parseInt(noteID)) {
             accumulator.push({ id: i, title: currentValue.title, text: currentValue.text });
