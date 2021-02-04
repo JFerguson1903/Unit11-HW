@@ -37,8 +37,11 @@ app.get('/api/notes', (req, res) => res.sendFile(path.join(__dirname, 'db', 'db.
 // Saving Newly Written Note
 app.post('/api/notes', (req, res) => {
     console.log(req.body);
-    let newNote = req.body;
     let currentStoredNotes = getStoredNotes();
+    // Creates a unique ID by +1 to the current length
+    let newNoteID = currentStoredNotes.length + 1;
+    let newNote = req.body;
+    newNote = Object.assign({ id: newNoteID }, newNote);
     currentStoredNotes.push(newNote);
     console.log(currentStoredNotes);
 });
