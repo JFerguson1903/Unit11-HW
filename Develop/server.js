@@ -36,14 +36,34 @@ app.get('/api/notes', (req, res) => res.sendFile(path.join(__dirname, 'db', 'db.
 
 // Saving Newly Written Note
 app.post('/api/notes', (req, res) => {
-    console.log(req.body);
     let currentStoredNotes = getStoredNotes();
     // Creates a unique ID by +1 to the current length
     let newNoteID = currentStoredNotes.length + 1;
     let newNote = req.body;
     newNote = Object.assign({ id: newNoteID }, newNote);
     currentStoredNotes.push(newNote);
-    console.log(currentStoredNotes);
+
+    // Updating db.json with the new note
+    fs.writeFileSync("./db/db.json", JSON.stringify(currentStoredNotes));
+    res.json(currentStoredNotes);
+});
+
+app.delete('/api/notes/:id', (req, res) => {
+    let currentStoredNotes = getStoredNotes();
+    let noteID = req.params.id;
+    let i = 1;
+
+    let modifiedStoredNotes = currentStoredNotes.reduce(function(accumulator, currentValue) {
+        if (currentValue.id !== parseInt(noteID)) {
+            accumulator.push({ id: i, title: currentValue.title, text: currentValue.text });
+            i++;
+        }
+        return accumulator
+    }, [])
+
+    // Updating db.json with the updated note
+    fs.writeFileSync("./db/db.json", JSON.stringify(modifiedStoredNotes));
+    res.json(modifiedStoredNotes);
 });
 
 // Sets default route to be landing page
