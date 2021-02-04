@@ -12,6 +12,12 @@ const PORT = 3011;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+// Retrieves information from the db,json
+let getStoredNotes = () => {
+    let databaseInfo = JSON.parse(fs.readFileSync("./db/db.json", "utf8"))
+    return databaseInfo;
+}
+
 // Routes
 // Route to local assets folder
 app.use('/assets', express.static(__dirname + '/public/assets'))
@@ -32,6 +38,7 @@ app.get('/api/notes', (req, res) => res.sendFile(path.join(__dirname, 'db', 'db.
 app.post('/api/notes', (req, res) => {
     console.log(req.body);
     let newNote = req.body;
+    getStoredNotes();
 });
 
 // Sets default route to be landing page
