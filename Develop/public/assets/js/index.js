@@ -9,8 +9,6 @@ let activeNote = {};
 
 // A function for getting all notes from the db
 const getNotes = () => {
-    console.log(`Get Note`);
-
     return $.ajax({
         url: "/api/notes",
         method: "GET",
@@ -19,8 +17,6 @@ const getNotes = () => {
 
 // A function for saving a note to the db
 const saveNote = (note) => {
-    console.log("Save Note");
-
     return $.ajax({
         url: "/api/notes",
         data: note,
@@ -30,8 +26,6 @@ const saveNote = (note) => {
 
 // A function for deleting a note from the db
 const deleteNote = (id) => {
-    console.log(`Delete Note`);
-
     return $.ajax({
         url: "api/notes/" + id,
         method: "DELETE",
