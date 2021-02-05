@@ -36,6 +36,7 @@ A larger copy of the demo is avaliable [here](https://jferguson1903.github.io/Un
 * Starter code and project idea provided by © 2021 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
 * [Paal Williams](https://github.com/paalwilliams) demonstration to the Bootcamp class
 * [Heroku](https://www.heroku.com/)
+* [Reduce Documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)
 
 ## License
 
