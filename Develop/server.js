@@ -13,13 +13,13 @@ app.use(express.json());
 
 // Retrieves information from the db.json
 let getStoredNotes = () => {
-    let databaseInfo = JSON.parse(fs.readFileSync("./db/db.json", "utf8"))
+    let databaseInfo = JSON.parse(fs.readFileSync(__dirname + '/db/db.json', "utf8"))
     return databaseInfo;
 }
 
 // Update db.json
 let updateDb = (updatedNote) => {
-    fs.writeFileSync("./db/db.json", JSON.stringify(updatedNote));
+    fs.writeFileSync(__dirname + '/db/db.json', JSON.stringify(updatedNote));
 }
 
 // Routes
