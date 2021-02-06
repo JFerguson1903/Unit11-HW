@@ -22,7 +22,7 @@ The frontend was provided by Triliogy/WASHU Coding Bootcamp. The build of the ba
 
 [Click here](https://quiet-lake-96011.herokuapp.com/) to access the deployed Note Taker pictured below.
 
-![Note Taker]()
+![Note Taker](https://user-images.githubusercontent.com/72481828/107104765-b3b52980-67e8-11eb-9af9-5ac641232f92.png)
 
 ## Credits
 
@@ -57,7 +57,7 @@ SOFTWARE.
 
 ## Tests
 
-The deployed application was tested for mobile resposivness with positive results.
+The deployed application was tested for mobile resposivness with positive results.  The console log was also reviewed throught out the build process and after deployment through Heroku to address any issues that arose.
 
 ## Questions
 
