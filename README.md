@@ -12,24 +12,17 @@ The frontend was provided by Triliogy/WASHU Coding Bootcamp. The build of the ba
 
 ## Table of Contents
 
-  * [Installation](#installation)
   * [Usage](#usage)
   * [Credits](#credits)
   * [License](#license)
   * [Tests](#tests)
   * [Questions](#questions)
 
-## Installation
-
-<!-- Run ```npm i``` in the terminal.    -->
-
 ## Usage
 
-<!-- Once you have ran the installation above and everything has successfully installed, run ```node index.js``` in the terminal.  Proceed to answer the prompted questions through the terminal.  Please see the demo below.
+[Click here](https://quiet-lake-96011.herokuapp.com/) to access the deployed Note Taker pictured below.
 
-![README Generator Demo](./Assets/READMEGeneratorDemo.gif)
-
-A larger copy of the demo is avaliable [here](https://jferguson1903.github.io/Unit9-HW/Assets/READMEGeneratorDemo.mp4). -->
+![Note Taker]()
 
 ## Credits
 
@@ -64,6 +57,7 @@ SOFTWARE.
 
 ## Tests
 
+The deployed application was tested for mobile resposivness with positive results.
 
 ## Questions
 
